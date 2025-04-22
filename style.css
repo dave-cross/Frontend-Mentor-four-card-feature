@@ -38,14 +38,17 @@
   --letter-spacing-10: 0.1px;
   --letter-spacing-25: 0.25px;
 
+  --space-50: 4px;
   --space-100: 8px;
   --space-200: 16px;
   --space-300: 24px;
   --space-400: 32px;
   --space-500: 40px;
+  --space-600: 48px;
   --space-700: 56px;
 
   --space-32-56: clamp(2rem, 0.4418rem + 6.6482vw, 3.5rem);
+  --space-60-74: clamp(3.75rem, 2.8411rem + 3.8781vw, 4.625rem);
 
   --radius-8: var(--space-100);
 
@@ -94,15 +97,18 @@ body {
 
 h1 {
   font: var(--typography-heading-bold);
+  letter-spacing: var(--letter-spacing-25);
 }
 
 p {
-  max-width: 75ch;
+  max-width: 55ch;
   margin-inline: auto;
+  letter-spacing: var(--letter-spacing-10);
 }
 
 hgroup {
   font: var(--typography-heading-light);
+  letter-spacing: var(--letter-spacing-25);
 }
 
 img {
@@ -112,11 +118,11 @@ img {
 
 article {
   text-align: center;
-  width: 100%;
+  inline-size: 100%;
 }
 
 .flow > * + * {
-  margin-block-start: var(--flow-space, var(--space-300));
+  margin-block-start: var(--flow-space, var(--space-200));
 }
 
 .cluster {
@@ -134,7 +140,7 @@ article {
   display: grid;
   place-items: center;
   min-height: 100vh;
-  padding: var(--space-300)
+  padding: var(--space-700)
     max(var(--space-32-56), calc(50% - var(--_max-width) / 2));
 }
 
@@ -168,8 +174,8 @@ article {
  */
 
 .grid {
-  margin: auto;
-  width: 100%;
+  margin-inline: auto;
+  inline-size: 100%;
 
   display: grid;
   grid-template-areas: "a" "b" "c" "d";
@@ -201,7 +207,12 @@ article {
   }
 }
 
+.cards {
+  --flow-space: var(--space-60-74);
+}
+
 .card {
+  --flow-space: var(--space-50);
   --_card-border-color: var(--card-border-color, darkgray);
   background-image: linear-gradient(
     to bottom,
@@ -211,10 +222,14 @@ article {
   box-shadow: var(--shadow-card);
   border-radius: var(--radius-card);
   font: var(--typography-card-body);
-  padding: var(--space-300);
+  padding: var(--space-400);
+  /* Odd measurement needed a correction */
+  /* padding-block-end: var(--space-600); */
+  padding-block-end: 46px;
   text-align: left;
-  width: 100%;
-  height: 100%;
+  inline-size: 100%;
+  block-size: 100%;
+  letter-spacing: var(--letter-spacing-09);
 
   p {
     max-width: 35ch;
@@ -222,6 +237,7 @@ article {
   }
 
   img {
+    --flow-space: var(--space-400);
     margin-inline-start: auto;
   }
 }
