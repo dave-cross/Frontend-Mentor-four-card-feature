@@ -50,6 +50,7 @@
   --space-32-56: clamp(2rem, 0.4418rem + 6.6482vw, 3.5rem);
   --space-60-74: clamp(3.75rem, 2.8411rem + 3.8781vw, 4.625rem);
   --space-56-102: clamp(3.5rem, 0.5135rem + 12.7424vw, 6.375rem);
+  --space-46-163: clamp(2.875rem, -4.7211rem + 32.41vw, 10.1875rem);
 
   --radius-8: var(--space-100);
 
@@ -142,7 +143,8 @@ article {
   place-items: center;
   min-height: 100vh;
   padding: var(--space-56-102)
-    max(var(--space-32-56), calc(50% - var(--_max-width) / 2));
+    max(var(--space-32-56), calc(50% - var(--_max-width) / 2))
+    var(--space-46-163);
 }
 
 /**
